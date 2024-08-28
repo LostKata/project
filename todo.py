@@ -2,10 +2,10 @@ import json
 
 
 class Task:
-    def __init__(self, description, due_date):
+    def __init__(self, description, due_date, completed = False):
         self.description = description
         self.due_date = due_date
-        self.completed = False
+        self.completed = completed
 
     def mark_completed(self):
         self.completed = True
@@ -37,7 +37,7 @@ class ToDoList:
 
     def delete_task(self, index):
         if 0 <= index < len(self.tasks):
-            self.tasks[index]
+            del self.tasks[index]
             self.save_tasks()
     
     def save_tasks(self):
